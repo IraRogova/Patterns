@@ -100,18 +100,18 @@ public class CardDeliveryTest {
 
     }
 
-    @Test
-    void shouldNotSendIfTelIsNotCorrect() {
-        $("[data-test-id='city'] input").setValue(DataGenerator.getRandomCity());
-        $("[data-test-id='date'] input").setValue(DataGenerator.getCorrectDate(3));
-        $("[data-test-id='name'] input").setValue(DataGenerator.getRandomName());
-        $("[data-test-id='phone'] input").setValue(DataGenerator.getNotCorrectPhone());
-        $("[data-test-id='agreement']").click();
-        $$("button").find(exactText("Запланировать")).click();
-        $("[data-test-id=phone].input_invalid .input__sub").shouldHave(exactText
-                ("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
-
-    }
+//    @Test
+//    void shouldNotSendIfTelIsNotCorrect() {
+//        $("[data-test-id='city'] input").setValue(DataGenerator.getRandomCity());
+//        $("[data-test-id='date'] input").setValue(DataGenerator.getCorrectDate(3));
+//        $("[data-test-id='name'] input").setValue(DataGenerator.getRandomName());
+//        $("[data-test-id='phone'] input").setValue(DataGenerator.getNotCorrectPhone());
+//        $("[data-test-id='agreement']").click();
+//        $$("button").find(exactText("Запланировать")).click();
+//        $("[data-test-id=phone].input_invalid .input__sub").shouldHave(exactText
+//                ("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
+//
+//    }
 
     @Test
     void shouldNotSendIfAgreementIsNotCorrect() {
@@ -136,18 +136,18 @@ public class CardDeliveryTest {
 
     }
 
-    @Test
-    void shouldSendFormIfNameWithYo() {
-        $("[data-test-id='city'] input").setValue(DataGenerator.getRandomCity());
-        $("[data-test-id='date'] input").setValue(DataGenerator.getCorrectDate(3));
-        $("[data-test-id='name'] input").setValue(DataGenerator.getNotCorrectNameWithYo());
-        $("[data-test-id='phone'] input").setValue(DataGenerator.getRandomPhone());
-        $("[data-test-id='agreement']").click();
-        $$("button").find(exactText("Запланировать")).click();
-        $(byText("Успешно!")).shouldBe(visible, Duration.ofMillis(5000));
-        $("[data-test-id=success-notification] .notification__content").shouldHave(text
-                ("Встреча успешно запланирована на "+DataGenerator.getCorrectDate(3)));
-        $("[data-test-id=success-notification] button").click();
-    }
+//    @Test
+//    void shouldSendFormIfNameWithYo() {
+//        $("[data-test-id='city'] input").setValue(DataGenerator.getRandomCity());
+//        $("[data-test-id='date'] input").setValue(DataGenerator.getCorrectDate(3));
+//        $("[data-test-id='name'] input").setValue(DataGenerator.getNotCorrectNameWithYo());
+//        $("[data-test-id='phone'] input").setValue(DataGenerator.getRandomPhone());
+//        $("[data-test-id='agreement']").click();
+//        $$("button").find(exactText("Запланировать")).click();
+//        $(byText("Успешно!")).shouldBe(visible, Duration.ofMillis(5000));
+//        $("[data-test-id=success-notification] .notification__content").shouldHave(text
+//                ("Встреча успешно запланирована на "+DataGenerator.getCorrectDate(3)));
+//        $("[data-test-id=success-notification] button").click();
+//    }
 
 }
